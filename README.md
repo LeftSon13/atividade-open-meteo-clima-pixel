@@ -1,6 +1,6 @@
 # Clima Pixel
 
-**Atividade prática de Front-End — HTML, CSS, JavaScript e API REST**
+**Atividade prática • UC5- Front-end de Projetos Web • Programa Jovem Programador**
 
 Aplicação de previsão do tempo desenvolvida para a atividade prática com a API Open-Meteo. A pessoa usuária pesquisa uma cidade e acompanha as condições atuais e a previsão dos próximos cinco dias em uma interface responsiva, ilustrada em pixel art.
 
@@ -41,11 +41,25 @@ Depois, abra `http://localhost:8000` no navegador. A conexão com a internet é 
 │   ├── index.html
 │   ├── script.js
 │   └── style.css
+├── social-media/
+│   ├── clima-pixel-bastidores.png
+│   ├── clima-pixel-capa.png
+│   ├── clima-pixel-climas.png
+│   └── clima-pixel-uc5-jovem-programador.png
 ├── clima-app.zip
 └── README.md
 ```
 
 O arquivo `clima-app.zip` é a versão compactada para entrega da atividade. Os arquivos-fonte também estão disponíveis na pasta `clima-app`.
+
+## Materiais para redes sociais
+
+Quatro artes verticais em proporção 4:5, prontas para publicação ou adaptação. A peça técnica identifica a atividade da UC5 e inclui trechos reais de código:
+
+- [Capa do Clima Pixel](social-media/clima-pixel-capa.png)
+- [A cidade muda com o clima](social-media/clima-pixel-climas.png)
+- [Bastidores do código](social-media/clima-pixel-bastidores.png)
+- [UC5 e Jovem Programador — com trechos de código](social-media/clima-pixel-uc5-jovem-programador.png)
 
 ## Serviços consultados
 
