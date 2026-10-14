@@ -45,7 +45,8 @@ Depois, abra `http://localhost:8000` no navegador. A conexão com a internet é 
 │   ├── clima-pixel-bastidores.png
 │   ├── clima-pixel-capa.png
 │   ├── clima-pixel-climas.png
-│   └── clima-pixel-uc5-jovem-programador.png
+│   ├── clima-pixel-uc5-jovem-programador.png
+│   └── clima-pixel-linkedin.png
 ├── clima-app.zip
 └── README.md
 ```
@@ -54,12 +55,13 @@ O arquivo `clima-app.zip` é a versão compactada para entrega da atividade. Os 
 
 ## Materiais para redes sociais
 
-Quatro artes verticais em proporção 4:5, prontas para publicação ou adaptação. A peça técnica identifica a atividade da UC5 e inclui trechos reais de código:
+Quatro artes verticais em proporção 4:5 e uma arte horizontal em 1200 × 627 para o LinkedIn, prontas para publicação ou adaptação. As peças técnicas identificam a atividade da UC5 e incluem trechos reais de código:
 
 - [Capa do Clima Pixel](social-media/clima-pixel-capa.png)
 - [A cidade muda com o clima](social-media/clima-pixel-climas.png)
 - [Bastidores do código](social-media/clima-pixel-bastidores.png)
 - [UC5 e Jovem Programador — com trechos de código](social-media/clima-pixel-uc5-jovem-programador.png)
+- [Aplicação em execução e código no editor — LinkedIn](social-media/clima-pixel-linkedin.png)
 
 ## Serviços consultados
 
