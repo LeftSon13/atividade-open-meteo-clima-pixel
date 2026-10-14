@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c36">
+  <meta name="description" content="Consulte o clima e veja uma cidade animada em pixel art mudar com o tempo.">
+  <title>Clima Pixel — previsão do tempo em pixel art</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Clima Pixel — início">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-name">clima<span>pixel</span></span>
+      </a>
+      <p class="header-note"><span class="pixel-spark" aria-hidden="true">✦</span> O tempo da sua cidade em pixels</p>
+    </header>
+
+    <main id="main-content">
+      <section class="search-section" aria-labelledby="page-title">
+        <div class="intro-copy">
+          <p class="eyebrow">UM CLIMA, UMA NOVA CENA</p>
+          <h1 id="page-title">Sua cidade em <span>pixel art</span></h1>
+          <p class="intro-description">Busque um lugar e veja o céu mudar junto com a previsão.</p>
+        </div>
+
+        <form id="search-form" class="search-form" role="search" novalidate>
+          <label class="sr-only" for="city-input">Buscar cidade</label>
+          <span class="search-icon" aria-hidden="true"></span>
+          <input
+            id="city-input"
+            name="city"
+            type="search"
+            role="combobox"
+            placeholder="Digite uma cidade…"
+            autocomplete="off"
+            autocapitalize="words"
+            spellcheck="false"
+            aria-describedby="search-status"
+            aria-controls="search-results"
+            aria-autocomplete="list"
+            aria-expanded="false"
+          >
+          <button class="search-button" type="submit"><span class="search-button-icon" aria-hidden="true"></span> Buscar</button>
+        </form>
+        <p id="search-status" class="search-status" role="status" aria-live="polite">Experimente buscar por Florianópolis, São Paulo ou Chapecó.</p>
+        <div id="search-results" class="search-results" role="listbox" aria-label="Cidades encontradas" hidden></div>
+      </section>
+
+      <section id="weather-feedback" class="weather-feedback" aria-live="polite" aria-atomic="true">
+        <span id="feedback-icon" class="feedback-icon" aria-hidden="true"></span>
+        <div class="feedback-copy">
+          <h2 id="feedback-title">Escolha uma cidade</h2>
+          <p id="feedback-detail">Faça uma busca para descobrir o clima e montar sua cidade em pixels.</p>
+        </div>
+        <button id="retry-button" class="retry-button" type="button" hidden>Tentar novamente</button>
+      </section>
+
+      <div id="weather-content" class="weather-content" hidden>
+        <section class="weather-scene" aria-labelledby="city-name">
+          <div class="scene-heading">
+            <div class="location-heading">
+              <span class="location-pin" aria-hidden="true"></span>
+              <div>
+                <p class="eyebrow">AGORA NO SEU MAPA</p>
+                <h2 id="city-name">Sua cidade</h2>
+                <p id="city-region" class="city-region"></p>
+              </div>
+            </div>
+            <p class="updated-label"><span class="status-dot" aria-hidden="true"></span><span>Atualizado <time id="updated-time">agora</time></span></p>
+          </div>
+
+          <div class="scene-layout">
+            <div class="current-weather" aria-label="Condições atuais">
+              <div class="current-condition">
+                <span id="current-icon" class="current-icon" aria-hidden="true"></span>
+                <div class="temperature-lockup">
+                  <p class="temperature-line"><span id="current-temperature">--</span><span class="temperature-unit" aria-label="graus Celsius">°C</span></p>
+                  <p id="current-description" class="current-description">Carregando clima…</p>
+                </div>
+              </div>
+              <dl class="current-stats">
+                <div class="stat-item">
+                  <dt><span class="stat-icon" data-icon="humidity" aria-hidden="true"></span> Umidade</dt>
+                  <dd id="current-humidity">--%</dd>
+                </div>
+                <div class="stat-item">
+                  <dt><span class="stat-icon" data-icon="thermometer" aria-hidden="true"></span> Sensação</dt>
+                  <dd id="current-feels-like">--°</dd>
+                </div>
+                <div class="stat-item">
+                  <dt><span class="stat-icon" data-icon="wind" aria-hidden="true"></span> Vento</dt>
+                  <dd id="current-wind">-- km/h</dd>
+                </div>
+              </dl>
+            </div>
+
+            <figure class="city-scene-card">
+              <svg
+                id="city-art"
+                class="city-art"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 960 430"
+                preserveAspectRatio="xMidYMid slice"
+                shape-rendering="crispEdges"
+                data-weather="clear"
+                data-time="day"
+                data-intensity="moderate"
+                data-wind="calm"
+                role="img"
+                aria-labelledby="city-art-title city-art-description"
+              >
+                <title id="city-art-title">Cidade em pixel art</title>
+                <desc id="city-art-description">Uma cidade detalhada em pixel art, com carros e pedestres em movimento e efeitos de chuva, neve, vento e luzes noturnas.</desc>
+                <defs>
+                  <pattern id="rain-pattern-light" width="92" height="66" patternUnits="userSpaceOnUse" patternTransform="skewX(-14)">
+                    <rect x="12" y="5" width="3" height="12" fill="#c7eaff"/>
+                    <rect x="48" y="27" width="3" height="11" fill="#c7eaff"/>
+                    <rect x="77" y="8" width="3" height="13" fill="#c7eaff"/>
+                  </pattern>
+                  <pattern id="rain-pattern-moderate" width="48" height="42" patternUnits="userSpaceOnUse" patternTransform="skewX(-14)">
+                    <rect x="8" y="3" width="4" height="15" fill="#c7eaff"/>
+                    <rect x="29" y="23" width="4" height="15" fill="#c7eaff"/>
+                    <rect x="42" y="1" width="3" height="12" fill="#c7eaff"/>
+                  </pattern>
+                  <pattern id="rain-pattern-heavy" width="27" height="30" patternUnits="userSpaceOnUse" patternTransform="skewX(-14)">
+                    <rect x="3" y="1" width="4" height="17" fill="#c7eaff"/>
+                    <rect x="16" y="13" width="4" height="16" fill="#c7eaff"/>
+                    <rect x="24" y="0" width="3" height="12" fill="#c7eaff"/>
+                  </pattern>
+                </defs>
+                <g class="sky">
+                  <rect class="sky-base" x="0" y="0" width="960" height="430" />
+                  <g class="stars" aria-hidden="true">
+                    <rect x="94" y="58" width="8" height="8"/><rect x="184" y="112" width="6" height="6"/>
+                    <rect x="325" y="44" width="8" height="8"/><rect x="478" y="94" width="6" height="6"/>
+                    <rect x="602" y="47" width="8" height="8"/><rect x="866" y="121" width="6" height="6"/>
+                    <rect x="744" y="75" width="5" height="5"/>
+                  </g>
+                </g>
+
+                <g class="sun" aria-hidden="true">
+                  <rect x="726" y="50" width="64" height="16"/>
+                  <rect x="710" y="66" width="96" height="16"/>
+                  <rect x="694" y="82" width="128" height="52"/>
+                  <rect x="710" y="134" width="96" height="16"/>
+                  <rect x="726" y="150" width="64" height="16"/>
+                  <rect x="742" y="34" width="32" height="16"/>
+                  <rect x="678" y="98" width="16" height="20"/>
+                  <rect x="822" y="98" width="16" height="20"/>
+                  <rect x="718" y="94" width="80" height="36" class="sun-core"/>
+                </g>
+                <g class="moon" aria-hidden="true">
+                  <path d="M786 45h32v16h16v32h-16v16h-32V93h-16V61h16z"/>
+                  <path class="moon-cutout" d="M802 45h16v16h16v16h-16v16h-16V77h-16V61h16z"/>
+                </g>
+
+                <g class="clouds" aria-hidden="true">
+                  <g class="cloud cloud-back">
+                    <rect x="140" y="92" width="96" height="16"/><rect x="124" y="108" width="144" height="32"/>
+                    <rect x="140" y="140" width="112" height="16"/>
+                  </g>
+                  <g class="cloud cloud-front">
+                    <rect x="412" y="142" width="112" height="16"/><rect x="396" y="158" width="160" height="32"/>
+                    <rect x="412" y="190" width="128" height="16"/>
+                  </g>
+                  <g class="cloud cloud-small">
+                    <rect x="830" y="178" width="64" height="12"/><rect x="818" y="190" width="88" height="20"/>
+                  </g>
+                </g>
+
+                <g class="fog" aria-hidden="true">
+                  <rect x="24" y="211" width="350" height="12"/><rect x="82" y="237" width="452" height="12"/>
+                  <rect x="534" y="214" width="392" height="12"/><rect x="612" y="241" width="300" height="12"/>
+                  <rect x="12" y="267" width="220" height="10"/>
+                </g>
+
+                <image class="city-sprite" href="assets/pixel-city.png" x="0" y="110" width="960" height="320" preserveAspectRatio="xMidYMid meet" aria-hidden="true" />
+
+                <g class="wind-lines" aria-hidden="true">
+                  <rect class="wind-streak" x="40" y="174" width="112" height="4"/>
+                  <rect class="wind-streak" x="178" y="202" width="70" height="4"/>
+                  <rect class="wind-streak" x="628" y="164" width="142" height="4"/>
+                  <rect class="wind-streak" x="793" y="193" width="94" height="4"/>
+                  <rect class="wind-streak" x="78" y="318" width="82" height="4"/>
+                  <rect class="wind-streak" x="721" y="335" width="126" height="4"/>
+                </g>
+
+                <g class="window-lights" aria-hidden="true">
+                  <rect x="166" y="241" width="5" height="8"/><rect x="187" y="252" width="5" height="8"/><rect x="219" y="238" width="5" height="8"/>
+                  <rect x="407" y="254" width="5" height="8"/><rect x="432" y="267" width="5" height="8"/><rect x="450" y="249" width="5" height="8"/>
+                  <rect x="558" y="304" width="5" height="8"/><rect x="591" y="296" width="5" height="8"/><rect x="618" y="315" width="5" height="8"/>
+                  <rect x="739" y="302" width="5" height="8"/><rect x="777" y="290" width="5" height="8"/><rect x="802" y="307" width="5" height="8"/>
+                  <rect x="841" y="231" width="6" height="9"/><rect x="871" y="250" width="6" height="9"/><rect x="903" y="223" width="6" height="9"/>
+                </g>
+
+                <g class="pedestrians" aria-hidden="true">
+                  <g class="pedestrian" transform="translate(286 360)">
+                    <rect class="pedestrian-head" x="4" y="0" width="8" height="8"/>
+                    <rect class="pedestrian-body" x="3" y="8" width="10" height="10"/>
+                    <rect class="pedestrian-arm" x="0" y="9" width="3" height="8"/><rect class="pedestrian-arm" x="13" y="8" width="3" height="8"/>
+                    <rect class="pedestrian-leg" x="4" y="18" width="4" height="8"/><rect class="pedestrian-leg" x="9" y="18" width="4" height="8"/>
+                  </g>
+                  <g class="pedestrian" transform="translate(690 359)">
+                    <rect class="pedestrian-head" x="4" y="0" width="8" height="8"/>
+                    <rect class="pedestrian-body" x="3" y="8" width="10" height="10"/>
+                    <rect class="pedestrian-arm" x="0" y="8" width="3" height="8"/><rect class="pedestrian-arm" x="13" y="9" width="3" height="8"/>
+                    <rect class="pedestrian-leg" x="3" y="18" width="4" height="8"/><rect class="pedestrian-leg" x="10" y="18" width="4" height="8"/>
+                  </g>
+                  <g class="pedestrian" transform="translate(816 360)">
+                    <rect class="pedestrian-head" x="4" y="0" width="8" height="8"/>
+                    <rect class="pedestrian-body" x="3" y="8" width="10" height="10"/>
+                    <rect class="pedestrian-arm" x="0" y="9" width="3" height="8"/><rect class="pedestrian-arm" x="13" y="8" width="3" height="8"/>
+                    <rect class="pedestrian-leg" x="4" y="18" width="4" height="8"/><rect class="pedestrian-leg" x="9" y="18" width="4" height="8"/>
+                  </g>
+                </g>
+
+                <g class="traffic" aria-hidden="true">
+                  <g class="traffic-car car-east" transform="translate(116 397)">
+                    <rect class="car-body" x="2" y="8" width="48" height="11"/>
+                    <rect class="car-roof" x="12" y="1" width="26" height="8"/>
+                    <rect class="car-window" x="16" y="3" width="8" height="5"/><rect class="car-window" x="27" y="3" width="8" height="5"/>
+                    <rect class="car-bumper" x="48" y="12" width="6" height="5"/>
+                    <rect class="car-wheel" x="9" y="17" width="9" height="8"/><rect class="car-wheel" x="36" y="17" width="9" height="8"/>
+                    <rect class="car-light" x="47" y="9" width="4" height="3"/>
+                  </g>
+                  <g class="traffic-car car-west" transform="translate(433 399)">
+                    <rect class="car-body" x="4" y="8" width="48" height="11"/>
+                    <rect class="car-roof" x="16" y="1" width="26" height="8"/>
+                    <rect class="car-window" x="19" y="3" width="8" height="5"/><rect class="car-window" x="30" y="3" width="8" height="5"/>
+                    <rect class="car-bumper" x="0" y="12" width="6" height="5"/>
+                    <rect class="car-wheel" x="11" y="17" width="9" height="8"/><rect class="car-wheel" x="38" y="17" width="9" height="8"/>
+                    <rect class="car-light" x="4" y="9" width="4" height="3"/>
+                  </g>
+                  <g class="traffic-car car-east" transform="translate(755 396)">
+                    <rect class="car-body" x="2" y="8" width="48" height="11"/>
+                    <rect class="car-roof" x="12" y="1" width="26" height="8"/>
+                    <rect class="car-window" x="16" y="3" width="8" height="5"/><rect class="car-window" x="27" y="3" width="8" height="5"/>
+                    <rect class="car-bumper" x="48" y="12" width="6" height="5"/>
+                    <rect class="car-wheel" x="9" y="17" width="9" height="8"/><rect class="car-wheel" x="36" y="17" width="9" height="8"/>
+                    <rect class="car-light" x="47" y="9" width="4" height="3"/>
+                  </g>
+                </g>
+
+                <g class="rain-light" aria-hidden="true">
+                  <rect width="960" height="430" fill="url(#rain-pattern-light)"/>
+                </g>
+                <g class="rain-moderate" aria-hidden="true">
+                  <rect width="960" height="430" fill="url(#rain-pattern-moderate)"/>
+                </g>
+                <g class="rain-heavy" aria-hidden="true">
+                  <rect width="960" height="430" fill="url(#rain-pattern-heavy)"/>
+                </g>
+                <g class="snow" aria-hidden="true">
+                  <g class="snowflake snowflake-cross" transform="translate(116 205)">
+                    <rect x="5" y="0" width="5" height="20"/><rect x="0" y="7" width="15" height="5"/>
+                    <rect x="1" y="2" width="4" height="4"/><rect x="10" y="2" width="4" height="4"/><rect x="1" y="13" width="4" height="4"/><rect x="10" y="13" width="4" height="4"/>
+                  </g>
+                  <g class="snowflake snowflake-plus" transform="translate(256 274)">
+                    <rect x="4" y="0" width="4" height="16"/><rect x="0" y="6" width="12" height="4"/>
+                  </g>
+                  <g class="snowflake snowflake-diamond" transform="translate(382 229)">
+                    <rect x="5" y="0" width="5" height="5"/><rect x="0" y="5" width="15" height="5"/><rect x="5" y="10" width="5" height="5"/>
+                  </g>
+                  <g class="snowflake snowflake-cross" transform="translate(526 286)">
+                    <rect x="5" y="0" width="5" height="20"/><rect x="0" y="7" width="15" height="5"/>
+                    <rect x="1" y="2" width="4" height="4"/><rect x="10" y="2" width="4" height="4"/><rect x="1" y="13" width="4" height="4"/><rect x="10" y="13" width="4" height="4"/>
+                  </g>
+                  <g class="snowflake snowflake-plus" transform="translate(668 212)">
+                    <rect x="4" y="0" width="4" height="16"/><rect x="0" y="6" width="12" height="4"/>
+                  </g>
+                  <g class="snowflake snowflake-diamond" transform="translate(794 266)">
+                    <rect x="5" y="0" width="5" height="5"/><rect x="0" y="5" width="15" height="5"/><rect x="5" y="10" width="5" height="5"/>
+                  </g>
+                  <g class="snowflake snowflake-cross" transform="translate(890 204)">
+                    <rect x="4" y="0" width="4" height="16"/><rect x="0" y="6" width="12" height="4"/>
+                  </g>
+                </g>
+                <g class="lightning" aria-hidden="true">
+                  <path d="M470 191h38l-20 36h25l-57 70 15-51h-25z"/>
+                </g>
+
+              </svg>
+              <figcaption class="scene-caption"><span class="caption-spark" aria-hidden="true">✦</span> O céu muda. A cidade acompanha.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="forecast-section" aria-labelledby="forecast-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">PREVISÃO ESTENDIDA</p>
+              <h2 id="forecast-title">Próximos 5 dias</h2>
+            </div>
+            <p class="forecast-note">Um pedacinho do que vem por aí <span aria-hidden="true">→</span></p>
+          </div>
+          <ol id="forecast-cards" class="forecast-cards" aria-label="Previsão do tempo para os próximos cinco dias" aria-live="polite"></ol>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>Feito com dados da <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a><span aria-hidden="true"> · </span>Uma previsão com cara de jogo.</p>
+      <p class="footer-pixel-note"><span aria-hidden="true">▦</span> Clima Pixel <span id="footer-year">2026</span></p>
+    </footer>
+  </div>
+</body>
+</html>
