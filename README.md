@@ -46,7 +46,10 @@ Depois, abra `http://localhost:8000` no navegador. A conexão com a internet é 
 │   ├── clima-pixel-capa.png
 │   ├── clima-pixel-climas.png
 │   ├── clima-pixel-uc5-jovem-programador.png
-│   └── clima-pixel-linkedin.png
+│   ├── clima-pixel-linkedin.png
+│   ├── clima-pixel-linkedin-apresentacao.png
+│   ├── clima-pixel-linkedin-pagina.png
+│   └── clima-pixel-linkedin-vscode.png
 ├── clima-app.zip
 └── README.md
 ```
@@ -55,13 +58,16 @@ O arquivo `clima-app.zip` é a versão compactada para entrega da atividade. Os 
 
 ## Materiais para redes sociais
 
-Quatro artes verticais em proporção 4:5 e uma arte horizontal em 1200 × 627 para o LinkedIn, prontas para publicação ou adaptação. As peças técnicas identificam a atividade da UC5 e incluem trechos reais de código:
+Quatro artes verticais em proporção 4:5 para redes sociais. Para o LinkedIn, preparei uma composição com capturas reais e três imagens individuais para montar uma sequência: apresentação da disciplina, página em execução e print do VS Code. O código mostrado é uma captura do editor, sem recriação dos trechos.
 
 - [Capa do Clima Pixel](social-media/clima-pixel-capa.png)
 - [A cidade muda com o clima](social-media/clima-pixel-climas.png)
 - [Bastidores do código](social-media/clima-pixel-bastidores.png)
-- [UC5 e Jovem Programador — com trechos de código](social-media/clima-pixel-uc5-jovem-programador.png)
-- [Aplicação em execução e código no editor — LinkedIn](social-media/clima-pixel-linkedin.png)
+- [Ilustração da UC5 e do Jovem Programador](social-media/clima-pixel-uc5-jovem-programador.png)
+- [Composição para LinkedIn — aplicação e print do VS Code](social-media/clima-pixel-linkedin.png)
+- [Apresentação da UC5 e do Jovem Programador](social-media/clima-pixel-linkedin-apresentacao.png)
+- [Página em execução](social-media/clima-pixel-linkedin-pagina.png)
+- [Print real do VS Code](social-media/clima-pixel-linkedin-vscode.png)
 
 ## Serviços consultados
 
